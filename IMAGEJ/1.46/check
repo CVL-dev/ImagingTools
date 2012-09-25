@@ -1,0 +1,24 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+pushd ${INSTALL_DIR}/plugins
+cp -f ${SOURCE_DIR}/Grouped_ZProjector.class ${INSTALL_DIR}/plugins
+unzip ${SOURCE_DIR}/stitching.zip
+popd
+cp -f ${SOURCE_DIR}/start48G ${INSTALL_DIR}
+cp -f ${SOURCE_DIR}/start96G ${INSTALL_DIR}
+chmod -R 755 ${INSTALL_DIR}/macros 
+chmod -R 755 ${INSTALL_DIR}/ImageJ.png
+chmod -R 755 ${INSTALL_DIR}/README.html
+
+# hack missing libodbc
+rm ${INSTALL_DIR}/jre/lib/amd64/libJdbcOdbc.so
+
+# Copy module validation script to package directory.
+if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then
+    cp ${SOURCE_DIR}/validate_module.sh ${INSTALL_DIR}
+fi
+

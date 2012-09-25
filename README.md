@@ -1,4 +1,0 @@
-ImagingTools
-============
-
-Common imaging tools
