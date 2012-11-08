@@ -6,6 +6,7 @@ INSTALL_DIR=$3
 
 pushd ${INSTALL_DIR}/plugins
 cp -f ${SOURCE_DIR}/Grouped_ZProjector.class ${INSTALL_DIR}/plugins
+cp -f ${SOURCE_DIR}/DM3_Reader.class ${INSTALL_DIR}/plugins
 unzip ${SOURCE_DIR}/stitching.zip
 popd
 cp -f ${SOURCE_DIR}/start48G ${INSTALL_DIR}
