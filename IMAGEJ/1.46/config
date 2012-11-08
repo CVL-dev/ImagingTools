@@ -10,7 +10,7 @@ ModuleFileDescription="ImageJ Tools"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.7"
+PACKAGE_RELEASE="2.8"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
