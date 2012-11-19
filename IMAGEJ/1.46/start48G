@@ -1,9 +1,6 @@
-echo "Starting ImageJ"
-echo "--------------------------------------------------------------------------"
-source /etc/profile
-module load virtualgl
-cat /proc/meminfo | grep MemTotal
-echo " Using ./jre/bin/java -Xmx51539m -jar ij.jar"
-cd /usr/local/imagej/1.46/
-./jre/bin/java -Xmx51539m -jar ij.jar
+#!/bin/sh
+
+StartImagej=`which startImagej`
+
+${StartImagej} 51539
 

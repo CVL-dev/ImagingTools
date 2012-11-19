@@ -10,7 +10,7 @@ ModuleFileDescription="ImageJ Tools"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.7"
+PACKAGE_RELEASE="2.11"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -36,7 +36,7 @@ function ConfigurationCommand()
 #
 # Module file environment setting, multiplines should be delimited by ";".
 #
-#EnvironmentModuleList=
+#EnvironmentModuleList="prepend-path PATH /usr/local/\$name/\$ver"
 
 #
 # Install configuration files to package in format of "<Source>:<Destination>",
@@ -78,8 +78,8 @@ MenuDirectory="ImageJ:applications-system"
 # The binary_path is a relative path including executable filename but without 
 # the installation prefix. For example, if /usr/local/turbovnc/1.1/bin/vncviewer
 # is the FQPN, the executable_file should be set to bin/vncviewer.
-#MenuDesktop="start48G:2012 Release:applications-utilities:true;start96G:2012 Release:applications-utilities:true"
-MenuDesktop="start48G:2012 Release:~/ImageJ.png:true;start96G:2012 Release:~/ImageJ.png:true"
+#MenuDesktop="bin/start48G:2012 Release:applications-utilities:true;start96G:2012 Release:applications-utilities:true"
+MenuDesktop="bin/start48G:2012 Release:~/ImageJ.png:true;bin/start96G:2012 Release:~/ImageJ.png:true"
 
 #
 # Set library dependencies in format <module1>:<module2>...:<moduleN>.

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+name=`basename $0`
+resolution=$1
+
+echo "Starting ImageJ"
+source /etc/profile
+module load virtualgl
+cat /proc/meminfo | grep MemTotal
+
+home="$HOME"
+path=`which ${name} | sed 's/\/bin\/'${name}'//g'`
+
+if [ ! -d ${home}/imagej ]; then
+    mkdir ${home}/imagej
+fi
+
+if [ ! -h ${home}/imagej/plugins ]; then
+    ln -s ${path}/plugins ${home}/imagej
+fi
+
+cd ${home}/imagej 
+
+${path}/jre/bin/java -Xmx${resolution}m -jar ${path}/ij.jar

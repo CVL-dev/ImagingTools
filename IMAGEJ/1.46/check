@@ -6,10 +6,17 @@ INSTALL_DIR=$3
 
 pushd ${INSTALL_DIR}/plugins
 cp -f ${SOURCE_DIR}/Grouped_ZProjector.class ${INSTALL_DIR}/plugins
+cp -f ${SOURCE_DIR}/DM3_Reader.class ${INSTALL_DIR}/plugins
 unzip ${SOURCE_DIR}/stitching.zip
 popd
-cp -f ${SOURCE_DIR}/start48G ${INSTALL_DIR}
-cp -f ${SOURCE_DIR}/start96G ${INSTALL_DIR}
+
+if [ ! -d ${INSTALL_DIR}/bin ]; then
+    mkdir -p ${INSTALL_DIR}/bin
+fi
+
+cp -f ${SOURCE_DIR}/start48G ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/start96G ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/startImagej ${INSTALL_DIR}/bin
 chmod -R 755 ${INSTALL_DIR}/macros 
 chmod -R 755 ${INSTALL_DIR}/ImageJ.png
 chmod -R 755 ${INSTALL_DIR}/README.html
