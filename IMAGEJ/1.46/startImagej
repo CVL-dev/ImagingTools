@@ -2,23 +2,18 @@
 
 name=`basename $0`
 resolution=$1
+length=$#
+parameters="$2"
+
+for (( i = 3; i <= ${length}; i++ )); do
+    parameters="${parameters} '$i'"
+done
 
 echo "Starting ImageJ"
 source /etc/profile
 module load virtualgl
 cat /proc/meminfo | grep MemTotal
 
-home="$HOME"
-path=`which ${name} | sed 's/\/bin\/'${name}'//g'`
-
-if [ ! -d ${home}/imagej ]; then
-    mkdir ${home}/imagej
-fi
-
-if [ ! -h ${home}/imagej/plugins ]; then
-    ln -s ${path}/plugins ${home}/imagej
-fi
-
-cd ${home}/imagej 
-
-${path}/jre/bin/java -Xmx${resolution}m -jar ${path}/ij.jar
+DIR=`which ${name} | sed 's/\/bin\/'${name}'//g'`
+cd ${DIR}
+${DIR}/jre/bin/java -Xmx${resolution}m -jar ${DIR}/ij.jar "${parameters}"

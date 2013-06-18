@@ -2,5 +2,5 @@
 
 StartImagej=`which startImagej`
 
-${StartImagej} 51539
+${StartImagej} 51539 "$@"
 
